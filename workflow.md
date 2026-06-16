@@ -54,3 +54,17 @@ Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:
 
 - 支持 `--portrait` 竖版（540×960）、`--jxl` 切换 Juggernaut XL 模型
 - 用户说"优化细节"时，在不改变已选风格前提下微调 prompt 描述
+
+## 推送配置到 GitHub
+
+用户说 **"推送gh"** 时，执行：
+
+```powershell
+Set-Location -LiteralPath sd_conf
+git add -A
+git commit -m "update config"
+git push
+```
+
+- 仓库：`https://github.com/LYL-Rainforest/sd_conf.git`
+- 分支：`main`
