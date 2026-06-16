@@ -11,7 +11,7 @@ git commit -m "update config"
 git push
 ```
 
-- 仓库：`https://github.com/LYL-Rainforest/sd_conf.git`
+- 仓库：`https://github.com/LYL-Rainforest/sd-conf.git`
 - 分支：`main`
 
 ## 环境配置
