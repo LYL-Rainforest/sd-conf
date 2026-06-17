@@ -75,6 +75,26 @@ Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:
 - 如用户只说"4k"而未说"原生4k"，一律使用 `--4k` 放大流程
 - **bridge脚本已优化**：tile 512→896, 采样器 dpmpp_3m_sde→dpmpp_2m, 步数 20+15→10+8
 
+### 出图反馈规则
+
+| 用户反馈 | 行为 |
+|----------|------|
+| "不错"、"多来" | 同 seed 继续生成 |
+| "不好"、没表态 | 停止，不再生成该方向 |
+
+### 预设变体
+
+一个预设文件可包含多个变体，用 `_1`、`_2` 等后缀区分：
+
+| 变体 | 说明 |
+|------|------|
+| `_1` | 默认/第一动作（如三分侧面） |
+| `_2` | 第二动作（如正面微俯） |
+
+- `common` 节存放共享部分（character、negative、params 等）
+- 各变体只写差异部分（pose、view、细节）
+- 完整 prompt = `common prompt prefix` + 变体后缀
+
 ### 其他参数
 
 - `--portrait` 竖版（540×960）
