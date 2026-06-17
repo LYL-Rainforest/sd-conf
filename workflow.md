@@ -82,18 +82,10 @@ Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:
 | "不错"、"多来" | 同 seed 继续生成 |
 | "不好"、没表态 | 停止，不再生成该方向 |
 
-### 预设变体
+### 分辨率
 
-一个预设文件可包含多个变体，用 `_1`、`_2` 等后缀区分：
-
-| 变体 | 说明 |
-|------|------|
-| `_1` | 默认/第一动作（如三分侧面） |
-| `_2` | 第二动作（如正面微俯） |
-
-- `common` 节存放共享部分（character、negative、params 等）
-- 各变体只写差异部分（pose、view、细节）
-- 完整 prompt = `common prompt prefix` + 变体后缀
+- 默认：**960×540**（横版）/ **540×960**（竖版 `--portrait`）
+- 4K放大：对应 3840×2160 / 2160×3840
 
 ### 其他参数
 
