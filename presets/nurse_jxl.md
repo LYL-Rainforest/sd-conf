@@ -8,7 +8,7 @@
 ## common
 
 ### negative
-nsfw, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, ugly, deformed, thick painting, heavy shadows, dark, muted colors, oversaturated, loli, child, young girl, teenage, soft focus, haze, fog, muscular, fat, large breasts, holding flowers, bouquet, smiling, fake smile, forced expression, exaggerated expression, 3d render, 3d model, cgi
+nsfw, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, ugly, deformed, thick painting, heavy shadows, dark, muted colors, oversaturated, loli, child, young girl, teenage, soft focus, haze, fog, muscular, fat, large breasts, holding flowers, bouquet, exaggerated smile, fake smile, forced expression, exaggerated expression, severe expression, thick eyebrows, huge eyes, wide eyes, 3d render, 3d model, cgi
 
 ### params
 --jxl --portrait --steps 40 --cfg 7
@@ -31,8 +31,8 @@ full body, head to toe, standing, hands resting on lower abdomen, nurse cap, thr
 ## _2（站立，正面微俯，视线向前，小帽别于发髻）
 full body, head to toe, standing, hands resting on lower abdomen, small nurse cap pinned on top of hair bun, facing viewer, looking at viewer, front view, slightly high angle, looking slightly downward
 
-## _3（跪坐，双手置两侧，正对镜头）
-kneeling, sitting on heels, hands resting at sides, arms at sides, entire body facing camera, camera at eye level, straight-on view, small nurse cap pinned on top of hair bun, well-fitted nurse uniform, fabric gently hugging curves, modest professional fit
+## _3（正座，双手置两侧，正对镜头，亲近神情）
+kneeling seiza style, sitting on heels, butt resting on legs, hands resting at sides, arms at sides, entire body facing camera, camera at eye level, straight-on view, small nurse cap pinned on top of hair bun, well-fitted nurse uniform, fabric gently hugging curves, modest professional fit, swept bangs parted in middle, delicate thin eyebrows, moderately sized eyes, gentle warm expression, soft subtle smile, approachable look, natural expression, intimate atmosphere
 
 ---
 
