@@ -39,7 +39,7 @@ Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:
 & "E:\sd-comfyui\python\python.exe" "E:\sd-comfyui\comfyui_bridge.py" --prompt "prompt here" [--steps 40] [--cfg 7] [--seed 42]
 ```
 
-- 直接出 **960×540 (16:9)** 品质图，不加`--4k`
+- 直接出 **960×544 (16:9)** 品质图，不加`--4k`
 - 用户挑选满意的图，把 prompt + seed 发给我
 
 ### 步骤2：指定4K放大
@@ -48,7 +48,7 @@ Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:
 & "E:\sd-comfyui\python\python.exe" "E:\sd-comfyui\comfyui_bridge.py" --prompt "prompt here" --4k [--steps 30] [--cfg 7] [--seed 42]
 ```
 
-- 加 `--4k`：960×540 → 4x AI放大 → ControlNet细节精修 → **3840×2160**
+- 加 `--4k`：960×544 → 4x AI放大 → ControlNet细节精修 → **3840×2176**
 - **优化参数**：tile 896²、dpmpp_2m 采样器、Pass 1 10步 + Pass 2 8步
 - 约 **1分50秒** 出图
 
@@ -73,7 +73,7 @@ Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:
 
 | 你说 | 含义 | 操作 |
 |------|------|------|
-| **4k** | 先出960×540筛选 → 再对选中的图4x放大+精修到4K | 我发你 prompt+seed → 你加 `--4k` 跑 |
+| **4k** | 先出960×544筛选 → 再对选中的图4x放大+精修到4K | 我发你 prompt+seed → 你加 `--4k` 跑 |
 | **原生4k** | 直接生成3840×2160 | 不加 `--4k`，手动修改bridge脚本width/height为3840×2160 |
 
 - 如用户只说"4k"而未说"原生4k"，一律使用 `--4k` 放大流程
@@ -99,11 +99,11 @@ Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:
 
 ### 分辨率
 
-- 默认：**960×540**（横版）/ **540×960**（竖版 `--portrait`）
+- 默认：**960×544**（横版）/ **544×960**（竖版 `--portrait`）
 - 4K放大：对应 3840×2160 / 2160×3840
 
 ### 其他参数
 
-- `--portrait` 竖版（540×960）
+- `--portrait` 竖版（544×960）
 - `--jxl` 切换 Juggernaut XL 模型
 - 用户说"优化细节"时，在不改变已选风格前提下微调 prompt 描述
