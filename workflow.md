@@ -28,7 +28,7 @@ git push
 Check `http://127.0.0.1:8188/queue`. If down:
 
 ```powershell
-Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:\sd-comfyui\ComfyUI\main.py`" --windows-standalone-build --listen 127.0.0.1 --port 8188" -NoNewWindow -RedirectStandardOutput "E:\sd-comfyui\comfyui_out.log" -RedirectStandardError "E:\sd-comfyui\comfyui_err.log"
+Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:\sd-comfyui\ComfyUI\main.py`" --listen 127.0.0.1 --port 8188 --disable-pinned-memory --lowvram" -NoNewWindow -RedirectStandardOutput "E:\sd-comfyui\comfyui_out.log" -RedirectStandardError "E:\sd-comfyui\comfyui_err.log"
 ```
 
 ## 出图流程
@@ -78,6 +78,17 @@ Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:
 
 - 如用户只说"4k"而未说"原生4k"，一律使用 `--4k` 放大流程
 - **bridge脚本已优化**：tile 512→896, 采样器 dpmpp_3m_sde→dpmpp_2m, 步数 20+15→10+8
+
+### 已有4K放大（`--upscale`）
+
+对已出图的图片进行4K放大+精修（3840×2160）：
+
+```powershell
+& "E:\sd-comfyui\python\python.exe" "E:\sd-comfyui\comfyui_bridge.py" --prompt "原prompt" --negative "原negative" --steps 40 --cfg 7 --batch-size 1 --upscale "E:\sd-comfyui\ComfyUI\output\图片名.png" --seed <自定义seed>
+```
+
+- 需安装模型：`control_v11f1e_sd15_tile.pth`（ControlNet）、`4x_NMKD-Superscale-SP_178000_G.pth`（放大）
+- 逐张执行，避免爆显存
 
 ### 出图反馈规则
 
