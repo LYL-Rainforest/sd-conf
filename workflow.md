@@ -102,6 +102,33 @@ Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:
 - 默认：**960×544**（横版）/ **544×960**（竖版 `--portrait`）
 - 4K放大：对应 3840×2160 / 2160×3840
 
+### LORA 列表（启动时分析）
+
+每次启动 SD 后，先运行以下命令查看可用 LORA 及其底模类型：
+
+```powershell
+& "E:\sd-comfyui\python\python.exe" -c "import json,struct,os; from safetensors import safe_open
+d=r'E:\sd-comfyui\ComfyUI\models\loras'
+print('\n--- LORA 列表 ---')
+for f in sorted(os.listdir(d)):
+ if not f.endswith('.safetensors'):continue
+ p=os.path.join(d,f)
+ with safe_open(p,framework='pt')as h:
+  k=list(h.keys());up=[x for x in k if 'lora_up' in x]
+  t='SDXL' if up and h.get_tensor(up[0]).shape[0]>=2048 else 'SD1.5'
+  print(f'{f:45s} {os.path.getsize(p)/1e6:5.1f}MB  {t}')
+print('---\n')"
+```
+
+| LORA | 大小 | 底模 |
+|------|------|------|
+| `Genshin_Nahida_AP_v1.safetensors` | 37.9MB | SDXL |
+| `genshin-char-model.safetensors` | 151.1MB | SDXL |
+| `shenhe_pony.safetensors` | 29.0MB | SDXL (Pony) |
+| `yoimiya_genshin.safetensors` | 75.6MB | SDXL |
+
+> 所有 LORA 均为 SDXL 底模，需配合 `--jxl` 使用。Pony 类 LORA 也兼容 Juggernaut XL。
+
 ### 其他参数
 
 - `--portrait` 竖版（544×960）
