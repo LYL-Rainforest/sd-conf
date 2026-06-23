@@ -133,11 +133,11 @@ print('---\n')"
 | LORA | 大小 | 底模 |
 |------|------|------|
 | `Genshin_Nahida_AP_v1.safetensors` | 37.9MB | SD1.5 |
-| `genshin-char-model.safetensors` | 151.1MB | SDXL |
+| `genshin-char-model.safetensors` | 151.1MB | SD1.5 |
 | `shenhe_pony.safetensors` | 29.0MB | SDXL (Pony) |
-| `yoimiya_genshin.safetensors` | 75.6MB | SDXL |
+| `yoimiya_genshin.safetensors` | 75.6MB | SD1.5 |
 
-> `Genshin_Nahida_AP_v1` 为 SD1.5 底模（训练自 anything-v3），**不**加 `--jxl`。其余 LORA 为 SDXL，需配合 `--jxl` 使用。Pony 类 LORA 也兼容 Juggernaut XL。
+> `Genshin_Nahida_AP_v1`、`genshin-char-model`、`yoimiya_genshin` 均为 SD1.5 底模，**不**加 `--jxl`。`shenhe_pony` 为 Pony/SDXL，需配合 `--jxl` 使用。
 
 ### 其他参数
 
