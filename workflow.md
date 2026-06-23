@@ -106,4 +106,6 @@ Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:
 
 - `--portrait` 竖版（544×960）
 - `--jxl` 切换 Juggernaut XL 模型
+- `--lora <文件名>` 加载 LORA（放入 `models\loras\`）
+- `--lora-strength <数值>` LORA 权重，默认 **0.85**
 - 用户说"优化细节"时，在不改变已选风格前提下微调 prompt 描述
