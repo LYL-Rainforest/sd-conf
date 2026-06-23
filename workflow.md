@@ -25,10 +25,19 @@ git push
 
 ### Startup
 
-Check `http://127.0.0.1:8188/queue`. If down:
-
 ```powershell
-Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:\sd-comfyui\ComfyUI\main.py`" --listen 127.0.0.1 --port 8188 --disable-pinned-memory --lowvram" -NoNewWindow -RedirectStandardOutput "E:\sd-comfyui\comfyui_out.log" -RedirectStandardError "E:\sd-comfyui\comfyui_err.log"
+# 检查是否已启动
+$up = $false
+try { $r = curl.exe -s -o nul -w "%{http_code}" http://127.0.0.1:8188/queue; if ($r -eq 200) { $up = $true } } catch {}
+if (-not $up) {
+    Write-Output "Starting ComfyUI..."
+    Start-Process -FilePath "E:\sd-comfyui\python\python.exe" -ArgumentList "-u `"E:\sd-comfyui\ComfyUI\main.py`" --listen 127.0.0.1 --port 8188 --disable-pinned-memory --lowvram" -NoNewWindow -RedirectStandardOutput "E:\sd-comfyui\comfyui_out.log" -RedirectStandardError "E:\sd-comfyui\comfyui_err.log"
+    Start-Sleep -Seconds 10
+    # 验证启动
+    try { $r = curl.exe -s -o nul -w "%{http_code}" http://127.0.0.1:8188/queue; if ($r -eq 200) { Write-Output "Server UP" } else { Write-Output "Server not ready ($r)" } } catch { Write-Output "Server not reachable" }
+} else {
+    Write-Output "Server already running"
+}
 ```
 
 ## 出图流程
